@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root{
+    --rosaClaro: #FDD4DD;
+    --rosaEscuro: #F67692;
+    --rosaMedio: #FFB4C4;
+    --cinzaClaro: #f5f5f5;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.container{
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+   height: 900px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 99;
+    background: #f5f5f5;
+    
+}
+nav .navegation{
+    display: flex;
+    justify-content: space-between;
+    color: #F67692;
+ 
+}
+
+.menumobile{
+    display: none;
+}
+.logotipo img{
+position: absolute;
+bottom: -60%;
+}
+
+.navegation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #F67692 !important;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.navegation a::after{
+    content: '';
+   position: absolute;
+   left: 0;
+   bottom: -6px;
+   width: 100%;
+   height: 3px;
+   background: #F67692;
+   border-radius: 5px;
+   transform-origin: right;
+   transform: scaleX(0);
+   transition: transform .5s;
+}
+.navegation .entra::after{
+    content: '';
+   position: absolute;
+   left: 0;
+   bottom: -6px;
+   width: 100%;
+   height: 3px;
+   background: transparent;
+   border-radius: 5px;
+   transform-origin: right;
+   transform: scaleX(0);
+   transition: transform .5s;
+}
+
+.navegation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navegation .btnLogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #F67692;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #F67692;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;    
+}
+
+.navegation .btnLogin-popup:hover{
+    background:#F67692;
+    color: #162938;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   overflow: hidden;
+   transform: scale(0);
+   transition: transform, .5s ease, height .2s ease;
+   background: rgb(253,212,221);
+background: linear-gradient(180deg, rgba(253,212,221,1) 34%, rgba(246,118,146,0.9725140056022409) 100%);
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
+    margin-bottom: 9rem;
+}
+
+.wrapper.active {
+    height: 600px;
+    margin-bottom: 6.5rem;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+    
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 40px;
+    color: #162938;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+    
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+} 
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline ;
+}
+
+.btn{
+    width: 100%;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0 10px;
+}
+
+.login-register p a{
+color: #162938;
+text-decoration: none;
+font-weight: 600;
+}
+login-register p a:hover{
+    text-decoration: underline;
+}
+
+@media (min-width:1001px) and (max-width:1200px){
+    .menumobile{
+        display: none;
+    }
+    .navegation{
+
+        display: flex;
+    }
+}
+@media (min-width:768px) and (max-width:1000px){
+
+    .menumobile{
+        display: grid;
+    }
+    .navegation{
+
+        display: none;
+    }
+    .navbar bg-light fixed-top{
+    background: #f5f5f5 !important;
+    }
+    .navbar-brand{
+        margin-bottom: -10px;
+    }
+    .offcanvas-header{
+        background: var(--rosaClaro);
+        border-top-left-radius: black;   
+    }
+    .offcanvas-body{
+    background: var(--rosaClaro);
+    }
+    .offcanvas{
+    width: 65% !important;
+    }
+}
+
+@media (min-width:368px) and (max-width:767px){
+
+    .termo a{
+        white-space: nowrap;
+    }
+    .menumobile{
+        display: grid;
+    }
+    .navegation{
+
+        display: none;
+    }
+}
